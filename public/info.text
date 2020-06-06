@@ -1,0 +1,52 @@
+Creo el proyect nuevo desde la terminal.
+
+----------------------------------------------------------------------------------
+Dentro de AppServiceProvider en el metodo boot agrego la siguiente linea de codigo.
+Debo importar el use arriba.
+
+use Illuminate\Support\Facades\Schema;
+
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+----------------------------------------------------------------------------------
+Creo sistema de login (auth): 
+	php artisan make:auth
+Luego
+	php artisan migrate
+----------------------------------------------------------------------------------
+Creo los Middleware para poder trabajar con distintas sesiones.
+
+	php artisan make:middleware usuarioMedico
+
+Esto me crea un middleware dentro de la carpeta app/http/middleware
+Debo modificar ese archivo...entrar y ver.
+Luego debo agregar en app/http/kernel.php el nuevo middleware en el metodo routeMiddleware
+	
+	'medico' => \App\Http\Middleware\Medico::class,
+	
+debo crear una carpeta de fotos con el nombre mail del medico. con lo que esta antes del @
+
+
+insert into vacunas (nombre, cantidad_dosis, activo) values ('BCG', 1, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Hepatitis B', 1, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Neumococo Conjugada', 3, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Quintuple Pentavalente DTP-HB-Hib', 3, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Polio IPV', 2, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Polio OPV', 3, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Rotavirus', 2, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Meningococo', 4, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Gripe', 0, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Hepatitis A', 1, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Triple Viral', 3, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Varicela', 1, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Cuadruple o Quintuple Pentavalente DTP-Hib', 1, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Triple Bacteriana Celular DTP', 1, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Triple Bacteriana Acelular dTpa', 1, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Virus Papiloma Humano VPH', 1, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Doble Bacteriana dT', 0, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Doble Viral SR o Triple Viral SRP', 1, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Fiebre Amarilla FA', 2, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Fiebre Hemorragica Argentina', 1, 1);
+insert into vacunas (nombre, cantidad_dosis, activo) values ('Otras', 1, 1);
